@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+
+    <h1 class="logo"> < > </h1>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="AboutMe.html">About Me</a>
+        <a href="skills.html">Skills</a>
+        <a href="project.html">Projects</a>
+    </div>
+
+</nav>
+
+<section class="hero small-hero">
+
+    <div class="hero-content">
+
+        <p class="hero-top motion delay-1">
+            CONNECT • COLLABORATE • CREATE
+        </p>
+
+        <h2 class="motion delay-2">
+            Let’s
+            <span class="dynamic-word" id="typing"></span>
+        </h2>
+
+        <p class="hero-description motion delay-3">
+            Let’s build something meaningful together.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="contact-container">
+
+    <div class="contact-grid">
+
+        <div class="contact-card motion delay-1">
+
+            <h3>Contact Information</h3>
+
+            <p><strong>Phone:</strong> +63 936 343 2532</p>
+
+            <p><strong>Email:</strong> kim_rendoque@dmc.edu.ph</p>
+
+            <p><strong>Location:</strong> Philippines</p>
+
+            <div class="socials">
+
+                <a href="https://github.com/">GitHub</a>
+
+                <a href="https://www.facebook.com/">Facebook</a>
+
+                <a href="https://www.tiktok.com/@rendoquekimbryanc">TikTok</a>
+
+            </div>
+
+        </div>
+
+        <div class="contact-card motion delay-2">
+
+            <h3>Send a Message</h3>
+
+            <form>
+
+                <input type="text" placeholder="Your Name">
+
+                <input type="email" placeholder="Your Email">
+
+                <textarea rows="5" placeholder="Your Message"></textarea>
+
+                <button class="btn-primary">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>KIM © 2026</p>
+</footer>
+
+<script>
+
+const words = [
+    "Connect.",
+    "Collaborate.",
+    "Create.",
+    "Build."
+];
+
+let i = 0;
+
+const typing = document.getElementById("typing");
+
+function rotateWords() {
+
+    typing.classList.remove("animate");
+
+    setTimeout(() => {
+
+        typing.textContent = words[i];
+
+        typing.classList.add("animate");
+
+        i = (i + 1) % words.length;
+
+    }, 200);
+
+}
+
+rotateWords();
+
+setInterval(rotateWords, 2200);
+
+</script>
+<script>
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+
+    });
+
+}, {
+    threshold: 0.2
+});
+
+document.querySelectorAll(".motion").forEach(el => {
+    observer.observe(el);
+});
+
+</script>
+
+</body>
+</html>

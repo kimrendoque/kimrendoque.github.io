@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+
+    <h1 class="logo">< ></h1>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="AboutMe.html">About Me</a>
+        <a href="skills.html">Skills</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+</nav>
+
+<section class="hero small-hero">
+
+    <div class="hero-content">
+
+        <p class="hero-top motion delay-1">
+            SYSTEMS • DESIGN • DEVELOPMENT
+        </p>
+
+        <h2 class="motion delay-2">
+            Featured
+            <span class="dynamic-word" id="typing"></span>
+        </h2>
+
+        <p class="hero-description motion delay-3">
+            Projects built using creativity, logic, and clean interfaces.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="projects-section">
+
+    <div class="grid">
+
+        <div class="project-card motion delay-1">
+
+            <div class="image-box">
+                <img src="habittracker.jpg" alt="">
+            </div>
+
+            <div class="project-content">
+
+                <h3>Inventory Management System</h3>
+
+                <p>
+                    For stock-awareness and sound decision in store.
+                </p>
+
+                <span>C# • WinForms</span>
+
+            </div>
+
+        </div>
+
+        <div class="project-card motion delay-2">
+
+            <div class="image-box">
+                <img src="spendtrails.jpg" alt="">
+            </div>
+
+            <div class="project-content">
+
+                <h3>Calorie Tracker</h3>
+
+                <p>
+                    Smart calorie-tracking system for the calorie-conscious.
+                </p>
+
+                <span>Java • CRUD</span>
+
+            </div>
+
+        </div>
+
+        <div class="project-card motion delay-3">
+
+            <div class="image-box">
+                <img src="webdesign.png" alt="">
+            </div>
+
+            <div class="project-content">
+
+                <h3>Web Design</h3>
+
+                <p>
+                    Modern responsive interfaces with smooth interactions.
+                </p>
+
+                <span>HTML • CSS • JS</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>KIM © 2026</p>
+</footer>
+
+<script>
+
+const words = [
+    "Projects.",
+    "Systems.",
+    "Designs.",
+    "Outputs."
+];
+
+let i = 0;
+
+const typing = document.getElementById("typing");
+
+function rotateWords() {
+
+    typing.classList.remove("animate");
+
+    setTimeout(() => {
+
+        typing.textContent = words[i];
+
+        typing.classList.add("animate");
+
+        i = (i + 1) % words.length;
+
+    }, 200);
+
+}
+
+rotateWords();
+
+setInterval(rotateWords, 2200);
+
+</script>
+<script>
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+
+    });
+
+}, {
+    threshold: 0.2
+});
+
+document.querySelectorAll(".motion").forEach(el => {
+    observer.observe(el);
+});
+
+</script>
+
+</body>
+</html>

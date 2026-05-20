@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aries Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h1 class="logo">< ></h1>
+
+    <div class="nav-links">
+        <a href="AboutMe.html">About Me</a>
+        <a href="skills.html">Skills</a>
+        <a href="project.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+    <!-- background glow circles -->
+    <div class="hero-glow glow-1"></div>
+    <div class="hero-glow glow-2"></div>
+
+    <div class="hero-content">
+
+        <p class="hero-top motion delay-1">
+            FRONTEND • SYSTEM • DESIGN
+        </p>
+
+        <h2 class="motion delay-2">
+            Building
+            <span class="dynamic-word" id="typing"></span>
+        </h2>
+
+        <p class="hero-description motion delay-3">
+            Creating modern websites, systems, and digital experiences
+            with clean code and creative interfaces.
+        </p>
+
+        <div class="hero-buttons motion delay-4">
+            <a href="project.html">
+                <button class="btn-primary">View Projects</button>
+            </a>
+
+            <a href="contact.html">
+                <button class="btn-secondary">Hire Me</button>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-section">
+
+    <h2 class="section-title">Featured Projects</h2>
+
+    <div class="grid">
+
+        <div class="project-card motion delay-1">
+
+            <div class="image-box">
+                <img src="webdesign.png" alt="">
+            </div>
+
+            <div class="project-content">
+                <h3>Web Designing</h3>
+
+                <p>
+                    Minimal and modern responsive interfaces
+                    with smooth user experience.
+                </p>
+
+                <span>HTML • CSS • JavaScript</span>
+            </div>
+        </div>
+
+        <div class="project-card motion delay-2">
+
+            <div class="image-box">
+                <img src="spendtrails.jpg" alt="">
+            </div>
+
+            <div class="project-content">
+                <h3>Calories tracker</h3>
+
+                <p>
+                    A precision calorie tracking application designed to simplify
+					nutritional monitoring and empower healthier lifestyle choices.
+                </p>
+
+                <span>Java • CRUD • Finance</span>
+            </div>
+        </div>
+
+        <div class="project-card motion delay-3">
+
+            <div class="image-box">
+                <img src="habittracker.jpg" alt="">
+            </div>
+
+            <div class="project-content">
+                <h3>Inventory management</h3>
+
+                <p>
+                    An inventory management system engineered with gamified progression to 
+					streamline tracking and boost operational productivity.
+                </p>
+
+                <span>C# • WinForms • UI/UX</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>KIM © 2026</p>
+</footer>
+
+<!-- HERO WORD EFFECT -->
+<script>
+
+const words = [
+    "Interfaces.",
+    "Experiences.",
+    "Systems.",
+    "Websites.",
+    "Solutions."
+];
+
+let i = 0;
+const typing = document.getElementById("typing");
+
+function rotateWords() {
+
+    typing.classList.remove("animate");
+
+    setTimeout(() => {
+
+        typing.textContent = words[i];
+
+        typing.classList.add("animate");
+
+        i = (i + 1) % words.length;
+
+    }, 200);
+
+}
+
+rotateWords();
+
+setInterval(rotateWords, 2200);
+
+</script>
+
+<!-- MOTION EFFECT -->
+<script>
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+
+    });
+
+}, {
+    threshold: 0.2
+});
+
+document.querySelectorAll(".motion").forEach(el => {
+    observer.observe(el);
+});
+
+</script>
+
+</body>
+</html>
